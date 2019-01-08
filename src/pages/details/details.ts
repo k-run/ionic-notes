@@ -14,6 +14,7 @@ export class DetailsPage {
   image: any;
   item: any;
   loading: any;
+  toast : any;
 
   constructor(
     private navParams: NavParams,
@@ -26,6 +27,7 @@ export class DetailsPage {
     private loadingCtrl: LoadingController
   ) {
     this.loading = this.loadingCtrl.create();
+    this.toast = this.toastCtrl;
   }
 
   ionViewWillLoad(){
@@ -59,22 +61,34 @@ export class DetailsPage {
     )
   }
 
+  displayToast(message) {
+    this.toast = this.toastCtrl.create({
+      message: message,
+      duration: 3000
+    });
+    this.toast.present();
+  }
+
   delete() {
     let confirm = this.alertCtrl.create({
       title: 'Confirm',
       message: 'Do you want to delete ' + this.item.title + '?',
       buttons: [
         {
+          // If user selects no, don't do anything
           text: 'No',
           handler: () => {}
         },
         {
           text: 'Yes',
           handler: () => {
+            // If user selects yes, then delete it from firebase
+            // then if promise is resolved, dismiss the modal & display a toast
+            // else console.log the err
             this.firebaseService.deleteTask(this.item.id)
             .then(
-              res => this.viewCtrl.dismiss(),
-              err => console.log(err)
+              res => [this.viewCtrl.dismiss(), this.displayToast(`${this.item.title} deleted successfully!`)], 
+              err => [console.log(err) , this.displayToast('Error! Something went wrong')]
             )
           }
         }
@@ -106,8 +120,10 @@ export class DetailsPage {
     });
   }
 
+  // @param The uri that is returned by ImagePicker
+  
   uploadImageToFirebase(image){
-    this.loading.present();
+   // this.loading.present();
     image = normalizeURL(image);
     let randomId = Math.random().toString(36).substr(2, 5);
     console.log(randomId);
@@ -115,6 +131,7 @@ export class DetailsPage {
     //uploads img to firebase storage
     this.firebaseService.uploadImage(image, randomId)
     .then(photoURL => {
+      console.log('Uploading image to Firebase');
       this.image = photoURL;
       this.loading.dismiss();
       let toast = this.toastCtrl.create({

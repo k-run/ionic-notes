@@ -1,0 +1,9 @@
+(D) displaying success/error message after note insertion/deletion & dismissing the modal
+(D) image picker
+(D) Change + button to left & title to center in new note as well
+(D) Make logout as button rather than footer
+(D) Change font
+Remove activities from stack
+Change task to note in project
+
+Give margin & padding to buttons & make them semi-circular

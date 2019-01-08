@@ -13,6 +13,7 @@ export class NewTaskModalPage {
   validations_form: FormGroup;
   image: any;
   loading: any;
+  toast: any;
 
   constructor(
     private viewCtrl: ViewController,
@@ -20,9 +21,18 @@ export class NewTaskModalPage {
     private formBuilder: FormBuilder,
     private imagePicker: ImagePicker,
     private firebaseService: FirebaseService,
-    private loadingCtrl: LoadingController
-  ) {
+    private loadingCtrl: LoadingController) 
+  {
     this.loading = this.loadingCtrl.create();
+    this.toast = this.toastCtrl;
+  }
+
+  displayToast(message) {
+    let toast = this.toast.create({
+      message: message,
+      duration: 3000
+    })
+    toast.present();
   }
 
   ionViewWillLoad(){
@@ -50,13 +60,17 @@ export class NewTaskModalPage {
     this.firebaseService.createTask(data)
     .then(
       res => {
+        console.log('Resetting fields');
         this.resetFields();
+        console.log('Dismissing the viewCtrl');
         this.viewCtrl.dismiss();
+        this.displayToast(`Note with ${data.title} is created!`);
       }
     )
   }
 
   openImagePicker(){
+    console.log('Inside image picker');
     this.imagePicker.hasReadPermission()
     .then((result) => {
       if(result == false){
@@ -83,7 +97,7 @@ export class NewTaskModalPage {
     this.loading.present();
     image = normalizeURL(image);
     let randomId = Math.random().toString(36).substr(2, 5);
-
+    console.log(`Uploading image ${image} to firebase with ${randomId}`);
     //uploads img to firebase storage
     this.firebaseService.uploadImage(image, randomId)
     .then(photoURL => {

@@ -12,6 +12,7 @@ export class FirebaseService {
 
   getTasks(){
     return new Promise<any>((resolve, reject) => {
+      console.log('Get all tasks called');
       let currentUser = firebase.auth().currentUser;
       this.snapshotChangesSubscription = this.afs.collection('people').doc(currentUser.uid).collection('tasks').snapshotChanges()
       .subscribe(snapshots => {
@@ -78,11 +79,21 @@ export class FirebaseService {
     img.src = imageUri;
   };
 
+  /**
+   * Uploads an image to Firebase
+   * @param imageURI This value is returned by imagepicker plugin
+   * @param randomId randomId
+   */
+
   uploadImage(imageURI, randomId){
     return new Promise<any>((resolve, reject) => {
       let storageRef = firebase.storage().ref();
+      console.log(`Firebase storage ref: ${storageRef}`);
+      
       let imageRef = storageRef.child('image').child(randomId);
+
       this.encodeImageUri(imageURI, function(image64){
+        // Below () puts the base64 img url to firebase & returns the url at which it is stored
         imageRef.putString(image64, 'data_url')
         .then(snapshot => {
           snapshot.ref.getDownloadURL()

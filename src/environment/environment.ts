@@ -1,11 +1,11 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyBvJ0ZWfd2GcIpKgdcIaZKJ6ohLW_E7DOs",
-    authDomain: "fir-storage-login.firebaseapp.com",
-    databaseURL: "https://fir-storage-login.firebaseio.com",
-    projectId: "firebase-storage-login",
-    storageBucket: "firebase-storage-login.appspot.com",
-    messagingSenderId: "803036592201"
+    apiKey: "AIzaSyBftos9algBii6m2Sp6hVpZ_UAJl_jhMxs",
+    authDomain: "ionic-notes-48363.firebaseapp.com",
+    databaseURL: "https://ionic-notes-48363.firebaseio.com",
+    projectId: "ionic-notes-48363",
+    storageBucket: "ionic-notes-48363.appspot.com",
+    messagingSenderId: "380362648707"
   }
 };

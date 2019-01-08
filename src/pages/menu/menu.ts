@@ -56,6 +56,7 @@ export class MenuPage {
   }
 
   logout(){
+    console.log('Logout called')
     this.authService.doLogout()
     .then(res => {
       this.navCtrl.push(LoginPage);

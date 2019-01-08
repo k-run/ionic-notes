@@ -21,6 +21,8 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environment/environment';
+import { DataProvider } from '../providers/data/data';
+import { PopOver } from '../pages/popover/popover';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { environment } from '../environment/environment';
     LoginPage,
     RegisterPage,
     MenuPage,
+    PopOver,
     NewTaskModalPage,
     DetailsPage
   ],
@@ -43,7 +46,8 @@ import { environment } from '../environment/environment';
   entryComponents: [
     MyApp,
     LoginPage,
-    RegisterPage,
+    RegisterPage,,
+    PopOver,
     MenuPage,
     NewTaskModalPage,
     DetailsPage
@@ -54,7 +58,9 @@ import { environment } from '../environment/environment';
     ImagePicker,
     FirebaseService,
     AuthService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DataProvider,
+
   ]
 })
 export class AppModule {}

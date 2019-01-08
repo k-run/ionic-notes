@@ -1,12 +1,12 @@
 <ion-header>
   <ion-navbar color="secondary">
-    <ion-buttons start>
+    <ion-buttons left>
       <button ion-button icon-only (click)="dismiss()">
         <ion-icon name="md-arrow-back"></ion-icon>
       </button>
     </ion-buttons>
     <ion-title>
-      New Task
+      Add a note
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -20,7 +20,8 @@
     </ion-row>
     <ion-row no-padding class="user-image-row">
       <ion-col no-padding width-60>
-        <button class="image-action-button" ion-button outline block small (click)="openImagePicker()">Change Picture</button>
+        <button class="image-action-button" 
+        ion-button outline block small (click)="openImagePicker()">Change Picture</button>
       </ion-col>
     </ion-row>
   </div>
