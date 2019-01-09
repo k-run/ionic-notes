@@ -1,8 +1,8 @@
 {
   "name": "com.karanc.ionic-firebase-crud-example",
   "version": "0.0.1",
-  "author": "IonicThemes",
-  "homepage": "https://ionicthemes.com/",
+  "author": "Karan",
+  "homepage": "https://github.com/karanchapaneri",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
