@@ -10,14 +10,14 @@
 #### Here, we have used simple email/password signin auth methods for authenticating users.
 #### Images, if any, are stored in firebase storage. It's a simple CRUD app in which you can create, read, update,delete notes with title,image & description.
 
-![loginPage](https://raw.githubusercontent.com/k-run/ionic-notes/master/www/assets/imgs/login.png)
+![loginPage](https://raw.githubusercontent.com/k-run/ionic-notes/master/src/assets/imgs/login.png)
 
-![registerPage](https://raw.githubusercontent.com/k-run/ionic-notes/master/www/assets/imgs/register.png)
+![registerPage](https://raw.githubusercontent.com/k-run/ionic-notes/master/src/assets/imgs/register.png)
 
-![createPage](https://raw.githubusercontent.com/k-run/ionic-notes/master/www/assets/imgs/create.png)
+![createPage](https://raw.githubusercontent.com/k-run/ionic-notes/master/src/assets/imgs/create.png)
 
-![updatePage](https://raw.githubusercontent.com/k-run/ionic-notes/master/www/assets/imgs/update.png)
+![updatePage](https://raw.githubusercontent.com/k-run/ionic-notes/master/src/assets/imgs/update.png)
 
-![deletePage](https://raw.githubusercontent.com/k-run/ionic-notes/master/www/assets/imgs/delete.png)
+![deletePage](https://raw.githubusercontent.com/k-run/ionic-notes/master/src/assets/imgs/delete.png)
 
-![homePage](https://raw.githubusercontent.com/k-run/ionic-notes/master/www/assets/imgs/home.png)
+![homePage](https://raw.githubusercontent.com/k-run/ionic-notes/master/src/assets/imgs/home.png)
